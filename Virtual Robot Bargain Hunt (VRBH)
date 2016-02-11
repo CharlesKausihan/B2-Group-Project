@@ -2,7 +2,7 @@ from Tkinter import *
 import tkMessageBox
 import Tkinter
 
-#kjdbchsbcisbcihb
+
 top = Tkinter.Tk()
 label = Label(text='Number of Seats')
 label.pack()
