@@ -2,8 +2,8 @@ import sqlite3 as sql
 
 colour_id = input("Colour of the car? :")
 location_id = input("Location of the car?: ")
-seat_id = float(input("How many seats in the car?: "))
-door_id = float(input("How many doors in the car?: "))
+seat_id = int(input("How many seats in the car?: "))
+door_id = int(input("How many doors in the car?: "))
 minPrice = float(input("Min price of the car?: "))
 maxPrice = float(input("Max price of the car?: "))
 
