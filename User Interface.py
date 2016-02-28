@@ -85,6 +85,7 @@ def main():
 	checkbutton = Checkbuttons(root)
 	popup = tkMessageBox.showinfo
 	button = Buttons(root, popup)
+	root.title("Virtual Robot Bargain Hunt")
 	
 	root.mainloop()
 
