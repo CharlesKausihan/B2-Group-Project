@@ -1,5 +1,7 @@
+#Make sure the database and this file are in the same directory when testing.3
 import sqlite3 as sql
 
+#You quotation marks for inputs when testing
 colour_id = input("Colour of the car? :")
 location_id = input("Location of the car?: ")
 seat_id = int(input("How many seats in the car?: "))
