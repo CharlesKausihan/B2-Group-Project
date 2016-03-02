@@ -22,32 +22,32 @@ def main():
     for n in resultList:
         priceList.append(n[6])
     
-    def swap(i, j):                    
-        sqc[i], sqc[j] = sqc[j], sqc[i] 
+    def swaping(i, j):                    
+        rList[i], rList[j] = rList[j], rList[i] 
 
-    def heapify(end,i):   
+    def heap(end,i):   
         l=2 * i + 1  
         r=2 * (i + 1)   
         max=i   
-        if l < end and sqc[i] < sqc[l]:   
+        if l < end and rList[i] < rList[l]:   
             max = l   
-        if r < end and sqc[max] < sqc[r]:   
+        if r < end and rList[max] < rList[r]:   
             max = r   
         if max != i:   
-            swap(i, max)   
-            heapify(end, max)   
+            swaping(i, max)   
+            heap(end, max)   
 
-    def heap_sort():     
-        end = len(sqc)   
+    def heapSort():     
+        end = len(rList)   
         start = end // 2 - 1 # use // instead of /
         for i in range(start, -1, -1):   
-            heapify(end, i)   
+            heap(end, i)   
         for i in range(end-1, 0, -1):   
-            swap(i, 0)   
-            heapify(i, 0)
+            swaping(i, 0)   
+            heap(i, 0)
 
-    sqc = priceList
-    heap_sort()
+    rList = priceList
+    heapSort()
     '''comparing resultList and priceList and adding results in asending order to
     sorted_Results_List'''
     for x in priceList:
