@@ -59,9 +59,36 @@ def intersionsort( dList ):
         dList[k] = tmp
 
 #merge sort algorithm
+def merge sort (alist):
 
-
-
+  if len(alist)//2
+  lefthalfhalf = alist[:mid]
+  righthalf = alist[mid:]
+  
+  megesort(lefthalf)
+  mergsort(righthalf)
+  
+  j=0
+  i=0
+  k=0
+  while i< len(lefthalf) and j < (righthalf):
+    if lefthalf[i] < righthalf[j]:
+    alist[k] = lefthalf[j];
+    i=i+1
+    else:
+      alist[k] = righthalf[j]
+      j=j+1
+      k=k+1
+      
+      while i< len(lefthalf:
+      alist[k] = lefthalf[i]:
+      i=i+1
+      k=k+1
+      
+      while j< len(righthalf):
+      alist[k] = righthalf[j]
+      j=j+1
+      k=k+1
 #using sorted priceList and unsorted resultList to form sorted results list 
 def finalSort():
     '''comparing resultList and priceList and adding results in asending order to
