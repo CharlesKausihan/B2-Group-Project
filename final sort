@@ -49,7 +49,14 @@ def selectionSort(alist):
        alist[positionOfMax] = temp
        
 #insertion sort algorithm
-
+def intersionsort( dList ):
+    for i in range( 1, len( dList ) ):
+      tmp = dList[i]
+      k = i
+      while k > 0 and tmp < dList[k - 1]:
+          dList[k] = dList[k - 1]
+          k -= 1
+        dList[k] = tmp
 
 #merge sort algorithm
 
@@ -100,3 +107,5 @@ on algorithm to use has been made and list has been sorted'''
 finalSort()
 
 #low to high/high to low decision
+low_to_high = Sorted_Results_List
+high_to_low = Sorted_Results_List.reverse() 
