@@ -1,0 +1,102 @@
+#list of results from searching
+resultList=user
+
+#list for prices to be sorted
+priceList=[]
+
+#final sorted list
+Sorted_Results_List=[]
+  
+#putting prices for individual car in seperate list
+for n in resultList:
+    priceList.append(n[6])
+
+#heap sort algorithm
+def swap(i, j):                    
+    sqc[i], sqc[j] = sqc[j], sqc[i] 
+
+def heapify(end,i):   
+    l=2 * i + 1  
+    r=2 * (i + 1)   
+    max=i   
+    if l < end and sqc[i] < sqc[l]:   
+        max = l   
+    if r < end and sqc[max] < sqc[r]:   
+        max = r   
+    if max != i:   
+        swap(i, max)   
+        heapify(end, max)   
+
+def heap_sort():     
+    end = len(sqc)   
+    start = end // 2 - 1
+    for i in range(start, -1, -1):   
+        heapify(end, i)   
+    for i in range(end-1, 0, -1):   
+        swap(i, 0)   
+        heapify(i, 0)
+
+#selection sort algorithm
+def selectionSort(alist):
+   for fillslot in range(len(alist)-1,0,-1):
+       positionOfMax=0
+       for location in range(1,fillslot+1):
+           if alist[location]>alist[positionOfMax]:
+               positionOfMax = location
+
+       temp = alist[fillslot]
+       alist[fillslot] = alist[positionOfMax]
+       alist[positionOfMax] = temp
+       
+#insertion sort algorithm
+
+
+#merge sort algorithm
+
+
+
+#using sorted priceList and unsorted resultList to form sorted results list 
+def finalSort():
+    '''comparing resultList and priceList and adding results in asending order to
+    sorted_Results_List'''
+    for x in priceList:
+        for y in resultList:
+            if x!=y[6]:
+                pass
+            else:
+                Sorted_Results_List.append(y)
+                
+# if statements deciding which sorting algorithm to use depending on size
+
+if len(priceList)<=5:
+    '''call selection sort function
+    if the length o the list is 5 or less '''
+    selectionSort(priceList)
+else:
+    pass
+
+if len(priceList)>5 and len(priceList)<=25:
+    '''call insetion sort function
+    if the list is longer than 5 but less than 25 '''
+    insertionsort(priceList)
+
+                
+if len(priceList)>25 and len(priceList)<=50:
+    '''call heap sort function if the list
+    is longer than 25 but less or equal to 50 '''
+    sqc = priceList
+    heap_sort()
+
+else:
+    pass
+
+if len(priceList)>50:
+    '''call merge sort function if the list is longer than 50 '''
+    mergeSort(priceList)
+    
+'''calling final sort
+function after decision
+on algorithm to use has been made and list has been sorted''' 
+finalSort()
+
+#low to high/high to low decision
