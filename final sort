@@ -1,3 +1,4 @@
+
 #list of results from searching
 resultList=user #user is the variable name for the list with resutlts from searching
 
@@ -5,8 +6,10 @@ resultList=user #user is the variable name for the list with resutlts from searc
 priceList=[] #list to add prices to for sorting 
 
 #final sorted list
-Sorted_Results_List=[] #final list which will be used to for the sorted full list
-  
+Sorted_Results_List=[] #final list which will be used to for the sorted full list low to high
+
+Sorted_Results_List2=[] #high to low
+
 #putting prices for individual car in seperate list
 for n in resultList:
     # for each element in price list
@@ -79,6 +82,7 @@ def finalSort():
                 pass
             else:
                 Sorted_Results_List.append(y)
+                Sorted_Results_List2.append(y)
                 
 # if statements deciding which sorting algorithm to use depending on size
 
@@ -104,7 +108,4 @@ function after decision
 on algorithm to use has been made and list has been sorted''' 
 finalSort()
 
-low_to_high = Sorted_Results_List
-high_to_low = Sorted_Results_List.reverse()
-
-
+Sorted_Results_List2.reverse()
