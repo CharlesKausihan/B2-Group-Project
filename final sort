@@ -14,30 +14,28 @@ for n in resultList:
     priceList.append(n[6])
 
 #selection sort algorithm
-#http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html
-def selectionSort(alist):
-   for fillslot in range(len(alist)-1,0,-1):
-       positionOfMax=0
-       for location in range(1,fillslot+1):
-           if alist[location]>alist[positionOfMax]:
-               positionOfMax = location
+def selectionSort(sqc):
+   for i in range(len(sqc)-1,0,-1):
+       maxPos=0
+       for n in range(1,i+1):
+           if sqc[n]>sqc[maxPos]:
+               maxPos = n
 
-       temp = alist[fillslot]
-       alist[fillslot] = alist[positionOfMax]
-       alist[positionOfMax] = temp
+       j = sqc[i]
+       sqc[i] = sqc[maxPos]
+       sqc[maxPos] = j
        
+#insertion sort algorithm
+def insertionsort( seq ):
+    for i in range( 1, len( seq ) ):
+        t = seq[i]
+        j = i
+        while j > 0 and t < seq[j - 1]:
+            seq[j] = seq[j - 1]
+            j -= 1
+        seq[j] = t
 
-#insertion sort algorithm found online
-def insertionsort( aList ):
-    for i in range( 1, len( aList ) ):
-        tmp = aList[i]
-        k = i
-        while k > 0 and tmp < aList[k - 1]:
-            aList[k] = aList[k - 1]
-            k -= 1
-        aList[k] = tmp
-
-#merge sort algorithm found on stack overflow
+#merge sort algorithm
 def mergeSort(alist):
     
     if len(alist)>1:
@@ -108,4 +106,5 @@ finalSort()
 
 low_to_high = Sorted_Results_List
 high_to_low = Sorted_Results_List.reverse()
+
 
