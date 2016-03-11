@@ -1,40 +1,17 @@
 #list of results from searching
-resultList=user
+resultList=user '''user is the variable name for the list with resutlts from searching '''
 
 #list for prices to be sorted
-priceList=[]
+priceList=[] ''' list to add prices to for sorting '''
 
 #final sorted list
-Sorted_Results_List=[]
+Sorted_Results_List=[] '''final list which will be used to for the sorted full list '''
   
 #putting prices for individual car in seperate list
 for n in resultList:
+    ''' for each element in price list
+    add the price (6th element in tuple) to price list'''
     priceList.append(n[6])
-
-#heap sort algorithm
-def swap(i, j):                    
-    sqc[i], sqc[j] = sqc[j], sqc[i] 
-
-def heapify(end,i):   
-    l=2 * i + 1  
-    r=2 * (i + 1)   
-    max=i   
-    if l < end and sqc[i] < sqc[l]:   
-        max = l   
-    if r < end and sqc[max] < sqc[r]:   
-        max = r   
-    if max != i:   
-        swap(i, max)   
-        heapify(end, max)   
-
-def heap_sort():     
-    end = len(sqc)   
-    start = end // 2 - 1
-    for i in range(start, -1, -1):   
-        heapify(end, i)   
-    for i in range(end-1, 0, -1):   
-        swap(i, 0)   
-        heapify(i, 0)
 
 #selection sort algorithm
 def selectionSort(alist):
@@ -49,46 +26,49 @@ def selectionSort(alist):
        alist[positionOfMax] = temp
        
 #insertion sort algorithm
-def intersionsort( dList ):
-    for i in range( 1, len( dList ) ):
-      tmp = dList[i]
-      k = i
-      while k > 0 and tmp < dList[k - 1]:
-          dList[k] = dList[k - 1]
-          k -= 1
-        dList[k] = tmp
+def insertionsort( aList ):
+    for i in range( 1, len( aList ) ):
+        tmp = aList[i]
+        k = i
+        while k > 0 and tmp < aList[k - 1]:
+            aList[k] = aList[k - 1]
+            k -= 1
+        aList[k] = tmp
 
 #merge sort algorithm
-def merge sort (alist):
+def mergeSort(alist):
+    
+    if len(alist)>1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
 
-  if len(alist)//2
-  lefthalfhalf = alist[:mid]
-  righthalf = alist[mid:]
-  
-  megesort(lefthalf)
-  mergsort(righthalf)
-  
-  j=0
-  i=0
-  k=0
-  while i< len(lefthalf) and j < (righthalf):
-    if lefthalf[i] < righthalf[j]:
-    alist[k] = lefthalf[j];
-    i=i+1
-    else:
-      alist[k] = righthalf[j]
-      j=j+1
-      k=k+1
-      
-      while i< len(lefthalf:
-      alist[k] = lefthalf[i]:
-      i=i+1
-      k=k+1
-      
-      while j< len(righthalf):
-      alist[k] = righthalf[j]
-      j=j+1
-      k=k+1
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+
+        i=0
+        j=0
+        k=0
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                alist[k]=lefthalf[i]
+                i=i+1
+            else:
+                alist[k]=righthalf[j]
+                j=j+1
+            k=k+1
+
+        while i < len(lefthalf):
+            alist[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j < len(righthalf):
+            alist[k]=righthalf[j]
+            j=j+1
+            k=k+1
+
+
 #using sorted priceList and unsorted resultList to form sorted results list 
 def finalSort():
     '''comparing resultList and priceList and adding results in asending order to
@@ -114,17 +94,8 @@ if len(priceList)>5 and len(priceList)<=25:
     if the list is longer than 5 but less than 25 '''
     insertionsort(priceList)
 
-                
-if len(priceList)>25 and len(priceList)<=50:
-    '''call heap sort function if the list
-    is longer than 25 but less or equal to 50 '''
-    sqc = priceList
-    heap_sort()
 
-else:
-    pass
-
-if len(priceList)>50:
+if len(priceList)>25:
     '''call merge sort function if the list is longer than 50 '''
     mergeSort(priceList)
     
@@ -133,6 +104,5 @@ function after decision
 on algorithm to use has been made and list has been sorted''' 
 finalSort()
 
-#low to high/high to low decision
 low_to_high = Sorted_Results_List
-high_to_low = Sorted_Results_List.reverse() 
+high_to_low = Sorted_Results_List.reverse()
