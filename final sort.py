@@ -38,40 +38,6 @@ def insertionsort( seq ):
             j -= 1
         seq[j] = t
 
-#merge sort algorithm
-def mergeSort(alist):
-    
-    if len(alist)>1:
-        mid = len(alist)//2
-        lefthalf = alist[:mid]
-        righthalf = alist[mid:]
-
-        mergeSort(lefthalf)
-        mergeSort(righthalf)
-
-        i=0
-        j=0
-        k=0
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                alist[k]=lefthalf[i]
-                i=i+1
-            else:
-                alist[k]=righthalf[j]
-                j=j+1
-            k=k+1
-
-        while i < len(lefthalf):
-            alist[k]=lefthalf[i]
-            i=i+1
-            k=k+1
-
-        while j < len(righthalf):
-            alist[k]=righthalf[j]
-            j=j+1
-            k=k+1
-
-
 #using sorted priceList and unsorted resultList to form sorted results list 
 def finalSort():
     #comparing resultList and priceList and adding results in asending order to
@@ -97,11 +63,6 @@ if len(priceList)>5 and len(priceList)<=25:
     '''call insetion sort function
     if the list is longer than 5 but less than 25 '''
     insertionsort(priceList)
-
-
-if len(priceList)>25:
-    '''call merge sort function if the list is longer than 50 '''
-    mergeSort(priceList)
     
 '''calling final sort
 function after decision
